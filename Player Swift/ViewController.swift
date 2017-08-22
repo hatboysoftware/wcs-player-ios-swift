@@ -18,9 +18,10 @@ class ViewController: UIViewController {
         changeViewState(button, enabled: false)
         if (button.titleLabel?.text == "STOP") {
             if FPWCSApi2.getSessions().count > 0 {
-                let session: FPWCSApi2Session? = FPWCSApi2.getSessions()?[0] as? FPWCSApi2Session
-                print("Disconnect session with server \(session?.getServerUrl())")
-                session?.disconnect()
+                if let session: FPWCSApi2Session = FPWCSApi2.getSessions()?[0] as? FPWCSApi2Session {
+                    print("Disconnect session with server \(session.getServerUrl()!)")
+                    session.disconnect()
+                }
             }
             else {
                 print("Nothing to disconnect")
