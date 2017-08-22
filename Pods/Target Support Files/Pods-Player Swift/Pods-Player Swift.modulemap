@@ -1,0 +1,6 @@
+framework module Pods_Player_Swift {
+  umbrella header "Pods-Player Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
